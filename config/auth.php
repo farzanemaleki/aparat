@@ -42,10 +42,19 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
             'hash' => false,
         ],
+
+
+    ],
+
+    'register_cache_expiration' => env('EXPIRATION_REGISTER' , 1440), //24*60min
+
+    'token_expiration' =>[
+        'token' => env('TOKEN' , 14400) , // ten days to minutes
+        'refresh_token' => env('REFRESH_TOKEN' , 14400) , //ten days to minutes
     ],
 
     /*

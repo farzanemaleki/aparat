@@ -20,9 +20,12 @@ use Illuminate\Support\Str;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'mobile' => '+98' . random_int(1111 , 9999). random_int(11111 , 99999),
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'type' => User::TYPE_USER,
+        'verified_at' => now(),
+        'verify_code' => null,
+        'website' =>$faker->url,
+        'password' => '$2y$10$CghSayCRtVJFsA1zkDog8uC7Pcew97Mtl6LDU6AVqL575GN5R5fKm', // password = 123456789
     ];
 });
